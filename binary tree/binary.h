@@ -10,7 +10,7 @@ typedef struct BinaryTreeNode
 	struct BinaryTreeNode* rchild;
 }BTNode;
 //弄清楚结构体，BTNode和BinaryTreeNode没有区别
-// 通过前序遍历的数组"ABD##E#H##CF##G##"构建二叉树
+// 通过前序遍历的数组"ABD##E#H##CF##G##"构建二叉树 BinaryTreeNode
 BTNode* BinaryTreeCreate(const BTDataType* a, int n );
 void BinaryTreeDestory(BTNode* root);
 int BinaryTreeSize(BTNode* root);

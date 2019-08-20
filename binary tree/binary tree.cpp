@@ -1,5 +1,6 @@
 #include "binary.h"
 #include "queue.h"
+#include "stack.h"
 BTNode* BinaryTreeCreate(const BTDataType* src, int n )
 {
 	//根据一个特殊的串来唯一确定一棵树，前序遍历ABD#GI##J###CE#HK###F##
@@ -71,6 +72,7 @@ void BinaryTreeDestory(BTNode* root)
 }
 void BinaryTreeLevelOrder(BTNode* root)
 {
+	//层序遍历
 	Queue qu;
 	BTNode *cur;
 	QueueInit(&qu);
@@ -96,3 +98,99 @@ void BinaryTreeLevelOrder(BTNode* root)
 	QueueDestory(&qu);
 
 }
+void BinaryTreePrevOrderNonR(BTNode* root)
+{
+	//前序非递归
+	Stack st;
+	BTNode* cur = root;
+	StackInit(&st, 100);
+	while (cur)
+	{
+		putchar(cur->data);
+		if (cur->rchild)
+		{
+			StackPush(&st, cur->rchild);
+
+		}
+		if (cur->lchild)
+		{
+			cur = cur->lchild;
+		}
+		else
+		{
+			cur = StackTop(&st);
+			StackPop(&st);
+		}
+
+	}
+
+
+	StackDestory(&st);
+
+}
+void BinaryTreeInOrderNonR(BTNode* root)
+{
+	//中序非递归
+	Stack st;
+	StackInit(&st,100);
+	//BTNode *cur = (BTNode *)malloc(sizeof(BTNode));
+	BTNode * cur = root;
+	while (cur||Stackisempty(&st))
+	{
+		for (;cur;cur=cur->lchild)
+		{
+			StackPush(&st, cur);
+		}
+		/* 左孩子入栈*/
+		cur = StackTop(&st);
+		/* 取栈顶，目的是去访问它的右孩子*/
+		if (cur)
+		{
+			putchar(cur->data);
+			StackPop(&st);
+			cur = cur->rchild;
+		}
+		/* 打印出栈，访问右孩子*/
+	}
+	StackDestory(&st);
+}
+
+void BinaryTreePostOrderNonR(BTNode* root)
+{
+	//后序非递归
+	char tag[60];
+	Stack st;
+	BTNode* cur = root;
+	StackInit(&st, 100);
+	do 
+	{
+		for (; cur; cur = cur->lchild)
+		{
+			StackPush(&st, cur);
+
+			tag[st.size - 1] = 0;
+		}
+
+		/* 左孩子入栈，并将tag标记置0，*/
+		while (Stackisempty(&st)&& tag[st.size - 1])
+		{
+			cur = StackTop(&st);
+			putchar(cur->data);
+			StackPop(&st);
+        /*循环访问栈顶，打印，出栈，条件是tag为1，并且栈不为空 */
+		}
+		if (Stackisempty(&st))
+		{
+			cur = StackTop(&st);
+			tag[st.size - 1] = 1;
+			cur = cur->rchild;
+
+		}
+		/* 访问栈顶，将它的tag置1，访问右孩子*/
+	} while (Stackisempty(&st));
+	 
+	
+	StackDestory(&st);
+}
+
+

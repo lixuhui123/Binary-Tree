@@ -11,10 +11,16 @@ int main()
 	putchar('\n');
 	BinaryTreeInOrder(root);
 	putchar('\n');
-
+	
 	BinaryTreePostOrder(root);
 	putchar('\n');
 	BinaryTreeLevelOrder(root);
+	putchar('\n');
+	BinaryTreePrevOrderNonR(root);
+	putchar('\n');
+	BinaryTreeInOrderNonR(root);
+	putchar('\n');
+	BinaryTreePostOrderNonR(root);
 	putchar('\n');
 	BinaryTreeDestory(root);
 	/*Queue qu;
