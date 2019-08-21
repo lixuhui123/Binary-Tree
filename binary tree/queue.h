@@ -4,7 +4,7 @@
 typedef BTNode* QuDataType;
 typedef struct QueueNode
 {
-	QuDataType _data;
+	QuDataType _data;//线性表
 	struct QueueNode* _next;
 
 }QueueNode;//链表节点，这是链表当中的单个块，包含了一个要存储的变量，和一个指针，当给_data

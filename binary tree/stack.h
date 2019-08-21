@@ -8,7 +8,7 @@
 typedef BTNode* StDataType;
 typedef struct Stack
 {
-	StDataType* array; // 指向动态开辟的数组
+	StDataType* array; // 指向动态开辟的数组，顺序表
 	size_t size; // 有效数据个数
 	size_t capicity; // 容量空间的大小
 }Stack;//一个数组
