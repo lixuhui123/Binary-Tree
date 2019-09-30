@@ -61,6 +61,7 @@ void BinaryTreePostOrder(BTNode* root)
 
 	}
 }
+/* 递归真的是很费脑子，目前粗浅的总结一下，先用最简单的例子实现然后再注意细节。*/
 void BinaryTreeDestory(BTNode* root)
 {
 	if (root)

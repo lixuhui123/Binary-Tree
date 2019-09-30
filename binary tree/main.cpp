@@ -4,7 +4,7 @@
 //队列用线性表，栈用顺序表
 int main()
 {
-	BTNode * root = BinaryTreeCreate("ABD#GI##J###CE#HK###F##", 0);
+	BTNode * root = BinaryTreeCreate("AB##C##", 0);//ABD#GI##J###CE#HK###F##
 	printf("%d  ", sizeof(BinaryTreeNode));
 	printf("%d  ", sizeof(BTNode));
 	BinaryTreePrevOrder(root);
@@ -13,6 +13,7 @@ int main()
 	putchar('\n');
 	
 	BinaryTreePostOrder(root);
+
 	putchar('\n');
 	BinaryTreeLevelOrder(root);
 	putchar('\n');
