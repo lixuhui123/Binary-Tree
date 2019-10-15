@@ -135,7 +135,7 @@ void BinaryTreeInOrderNonR(BTNode* root)
 	Stack st;
 	StackInit(&st,100);
 	//BTNode *cur = (BTNode *)malloc(sizeof(BTNode));
-	BTNode * cur = root;
+	BTNode * cur = root;/* 创建二叉树节点保存根节点  */
 	while (cur||Stackisempty(&st))
 	{
 		for (;cur;cur=cur->lchild)
