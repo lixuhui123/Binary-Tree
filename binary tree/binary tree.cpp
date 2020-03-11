@@ -33,22 +33,32 @@ BTNode* BinaryTreeCreate(const BTDataType* src, int n )
 void BinaryTreePrevOrder(BTNode* root) 
 {
 	//前序遍历,记怎么做的
- 	if (root)
+	if (root == NULL)
+		return;
+	putchar(root->data);
+	BinaryTreePrevOrder(root->lchild);
+	BinaryTreePrevOrder(root->rchild);
+	/*if (root)
 	{
 		putchar(root->data);
 		BinaryTreePrevOrder(root->lchild);
 		BinaryTreePrevOrder(root->rchild);
-	}
+	}*/
 	
 }
 void BinaryTreeInOrder(BTNode* root)
 {
-	if (root)
+	if (root == NULL)
+		return;
+	BinaryTreeInOrder(root->lchild);
+	putchar(root->data);
+	BinaryTreeInOrder(root->rchild);
+	/*if (root)
 	{
 		BinaryTreeInOrder(root->lchild);
 		putchar(root->data);
 		BinaryTreeInOrder(root->rchild);
-	}
+	}*/
 	
 }
 void BinaryTreePostOrder(BTNode* root)
@@ -131,7 +141,8 @@ void BinaryTreePrevOrderNonR(BTNode* root)
 }
 void BinaryTreeInOrderNonR(BTNode* root)
 {
-	//中序非递归
+	//中序非递归,左根右，中序用栈，循环的条件是当前节点与上栈不为空，首先将左边支全部入栈，然后取栈顶
+	//判断cur不为空的情况里，打印，出栈cur指向右孩子
 	Stack st;
 	StackInit(&st,100);
 	//BTNode *cur = (BTNode *)malloc(sizeof(BTNode));
