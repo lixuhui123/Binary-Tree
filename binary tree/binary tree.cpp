@@ -1,6 +1,7 @@
 #include "binary.h"
 #include "queue.h"
 #include "stack.h"
+#include <vector>
 BTNode* BinaryTreeCreate(const BTDataType* src, int n )
 {
 	//根据一个特殊的串来唯一确定一棵树，前序遍历ABD#GI##J###CE#HK###F##
@@ -38,6 +39,7 @@ void BinaryTreePrevOrder(BTNode* root)
 	putchar(root->data);
 	BinaryTreePrevOrder(root->lchild);
 	BinaryTreePrevOrder(root->rchild);
+	
 	/*if (root)
 	{
 		putchar(root->data);
